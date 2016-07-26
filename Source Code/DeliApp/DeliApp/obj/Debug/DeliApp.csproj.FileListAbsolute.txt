@@ -1,0 +1,11 @@
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\DeliApp.exe.config
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\DeliApp.exe
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\DeliApp.pdb
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\ConsoleTables.Core.dll
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\EntityFramework.dll
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\EntityFramework.xml
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\obj\Debug\DeliApp.csprojResolveAssemblyReference.cache
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\obj\Debug\DeliApp.exe
+c:\users\n00783340\documents\visual studio 2015\Projects\DeliApp\DeliApp\obj\Debug\DeliApp.pdb

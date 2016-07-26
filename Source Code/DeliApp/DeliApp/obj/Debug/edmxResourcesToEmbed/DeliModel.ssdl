@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNTS">
+    <Key>
+      <PropertyRef Name="ACC_ID" />
+    </Key>
+    <Property Name="ACC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAND_ID" Type="int" Nullable="false" />
+    <Property Name="ACC_REVENUE" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="ACC_COST" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="ACC_PROFIT" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="ACC_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CUSTOMERS">
+    <Key>
+      <PropertyRef Name="CUS_ID" />
+    </Key>
+    <Property Name="CUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUS_FNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CUS_LNAME" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INVENTORY_ITEMS">
+    <Key>
+      <PropertyRef Name="INV_ID" />
+    </Key>
+    <Property Name="INV_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CAT_ID" Type="int" Nullable="false" />
+    <Property Name="INV_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="INV_QUANTITY" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ITEM_CATEGORIES">
+    <Key>
+      <PropertyRef Name="CAT_ID" />
+    </Key>
+    <Property Name="CAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CAT_NAME" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOYAL_CUSTOMERS">
+    <Key>
+      <PropertyRef Name="CUS_ID" />
+    </Key>
+    <Property Name="CUS_ID" Type="int" Nullable="false" />
+    <Property Name="LCUS_PHONE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="LCUS_EMAIL" Type="varchar" MaxLength="320" Nullable="false" />
+    <Property Name="LCUS_ADDRESS" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="LCUS_ZIPCODE" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="LCUS_POINTS" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MENU_INGREDIENTS">
+    <Key>
+      <PropertyRef Name="MENU_ID" />
+      <PropertyRef Name="INV_ID" />
+    </Key>
+    <Property Name="MENU_ID" Type="int" Nullable="false" />
+    <Property Name="INV_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MENU_OPTIONS">
+    <Key>
+      <PropertyRef Name="MENU_ID" />
+    </Key>
+    <Property Name="MENU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MENU_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MENU_PRICE" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="MENU_COST" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER_LINES">
+    <Key>
+      <PropertyRef Name="LINE_NUM" />
+      <PropertyRef Name="ORDER_ID" />
+    </Key>
+    <Property Name="LINE_NUM" Type="int" Nullable="false" />
+    <Property Name="ORDER_ID" Type="int" Nullable="false" />
+    <Property Name="MENU_ID" Type="int" Nullable="false" />
+    <Property Name="LINE_QUANTITY" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="ORDER_ID" />
+    </Key>
+    <Property Name="ORDER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUS_ID" Type="int" Nullable="false" />
+    <Property Name="ORDER_DATE" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SANDWICHES">
+    <Key>
+      <PropertyRef Name="SAND_ID" />
+    </Key>
+    <Property Name="SAND_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MENU_ID" Type="int" Nullable="false" />
+    <Property Name="SAND_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SAND_MEAT_TYPE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SAND_MEAT_QUANTITY" Type="int" Nullable="false" />
+    <Property Name="SAND_CHEESE_TYPE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SAND_BREAD_TYPE" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VENDOR_ITEMS">
+    <Key>
+      <PropertyRef Name="INV_ID" />
+      <PropertyRef Name="VEND_ID" />
+    </Key>
+    <Property Name="INV_ID" Type="int" Nullable="false" />
+    <Property Name="VEND_ID" Type="int" Nullable="false" />
+    <Property Name="ITEM_DELIVERY_DATE" Type="date" Nullable="false" />
+    <Property Name="ITEM_PRICE" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VENDORS">
+    <Key>
+      <PropertyRef Name="VEND_ID" />
+    </Key>
+    <Property Name="VEND_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VEND_NAME" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="VEND_PHONE" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="VEND_EMAIL" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__ACCOUNTS__SAND_I__398D8EEE">
+    <End Role="SANDWICHES" Type="Self.SANDWICHES" Multiplicity="1" />
+    <End Role="ACCOUNTS" Type="Self.ACCOUNTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANDWICHES">
+        <PropertyRef Name="SAND_ID" />
+      </Principal>
+      <Dependent Role="ACCOUNTS">
+        <PropertyRef Name="SAND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INVENTORY__CAT_I__276EDEB3">
+    <End Role="ITEM_CATEGORIES" Type="Self.ITEM_CATEGORIES" Multiplicity="1" />
+    <End Role="INVENTORY_ITEMS" Type="Self.INVENTORY_ITEMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEM_CATEGORIES">
+        <PropertyRef Name="CAT_ID" />
+      </Principal>
+      <Dependent Role="INVENTORY_ITEMS">
+        <PropertyRef Name="CAT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LOYAL_CUS__CUS_I__3F466844">
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1" />
+    <End Role="LOYAL_CUSTOMERS" Type="Self.LOYAL_CUSTOMERS" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="CUS_ID" />
+      </Principal>
+      <Dependent Role="LOYAL_CUSTOMERS">
+        <PropertyRef Name="CUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MENU_INGR__INV_I__32E0915F">
+    <End Role="INVENTORY_ITEMS" Type="Self.INVENTORY_ITEMS" Multiplicity="1" />
+    <End Role="MENU_INGREDIENTS" Type="Self.MENU_INGREDIENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INVENTORY_ITEMS">
+        <PropertyRef Name="INV_ID" />
+      </Principal>
+      <Dependent Role="MENU_INGREDIENTS">
+        <PropertyRef Name="INV_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MENU_INGR__MENU___31EC6D26">
+    <End Role="MENU_OPTIONS" Type="Self.MENU_OPTIONS" Multiplicity="1" />
+    <End Role="MENU_INGREDIENTS" Type="Self.MENU_INGREDIENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENU_OPTIONS">
+        <PropertyRef Name="MENU_ID" />
+      </Principal>
+      <Dependent Role="MENU_INGREDIENTS">
+        <PropertyRef Name="MENU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_LIN__MENU___48CFD27E">
+    <End Role="MENU_OPTIONS" Type="Self.MENU_OPTIONS" Multiplicity="1" />
+    <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENU_OPTIONS">
+        <PropertyRef Name="MENU_ID" />
+      </Principal>
+      <Dependent Role="ORDER_LINES">
+        <PropertyRef Name="MENU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER_LIN__ORDER__47DBAE45">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="1" />
+    <End Role="ORDER_LINES" Type="Self.ORDER_LINES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ORDER_ID" />
+      </Principal>
+      <Dependent Role="ORDER_LINES">
+        <PropertyRef Name="ORDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS__CUS_ID__4316F928">
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="CUS_ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="CUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SANDWICHE__MENU___35BCFE0A">
+    <End Role="MENU_OPTIONS" Type="Self.MENU_OPTIONS" Multiplicity="1" />
+    <End Role="SANDWICHES" Type="Self.SANDWICHES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENU_OPTIONS">
+        <PropertyRef Name="MENU_ID" />
+      </Principal>
+      <Dependent Role="SANDWICHES">
+        <PropertyRef Name="MENU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VENDOR_IT__INV_I__2B3F6F97">
+    <End Role="INVENTORY_ITEMS" Type="Self.INVENTORY_ITEMS" Multiplicity="1" />
+    <End Role="VENDOR_ITEMS" Type="Self.VENDOR_ITEMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INVENTORY_ITEMS">
+        <PropertyRef Name="INV_ID" />
+      </Principal>
+      <Dependent Role="VENDOR_ITEMS">
+        <PropertyRef Name="INV_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VENDOR_IT__VEND___2C3393D0">
+    <End Role="VENDORS" Type="Self.VENDORS" Multiplicity="1" />
+    <End Role="VENDOR_ITEMS" Type="Self.VENDOR_ITEMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENDORS">
+        <PropertyRef Name="VEND_ID" />
+      </Principal>
+      <Dependent Role="VENDOR_ITEMS">
+        <PropertyRef Name="VEND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbAppModelStoreContainer">
+    <EntitySet Name="ACCOUNTS" EntityType="Self.ACCOUNTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INVENTORY_ITEMS" EntityType="Self.INVENTORY_ITEMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ITEM_CATEGORIES" EntityType="Self.ITEM_CATEGORIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOYAL_CUSTOMERS" EntityType="Self.LOYAL_CUSTOMERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MENU_INGREDIENTS" EntityType="Self.MENU_INGREDIENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MENU_OPTIONS" EntityType="Self.MENU_OPTIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_LINES" EntityType="Self.ORDER_LINES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SANDWICHES" EntityType="Self.SANDWICHES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VENDOR_ITEMS" EntityType="Self.VENDOR_ITEMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VENDORS" EntityType="Self.VENDORS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ACCOUNTS__SAND_I__398D8EEE" Association="Self.FK__ACCOUNTS__SAND_I__398D8EEE">
+      <End Role="SANDWICHES" EntitySet="SANDWICHES" />
+      <End Role="ACCOUNTS" EntitySet="ACCOUNTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INVENTORY__CAT_I__276EDEB3" Association="Self.FK__INVENTORY__CAT_I__276EDEB3">
+      <End Role="ITEM_CATEGORIES" EntitySet="ITEM_CATEGORIES" />
+      <End Role="INVENTORY_ITEMS" EntitySet="INVENTORY_ITEMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LOYAL_CUS__CUS_I__3F466844" Association="Self.FK__LOYAL_CUS__CUS_I__3F466844">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="LOYAL_CUSTOMERS" EntitySet="LOYAL_CUSTOMERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MENU_INGR__INV_I__32E0915F" Association="Self.FK__MENU_INGR__INV_I__32E0915F">
+      <End Role="INVENTORY_ITEMS" EntitySet="INVENTORY_ITEMS" />
+      <End Role="MENU_INGREDIENTS" EntitySet="MENU_INGREDIENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MENU_INGR__MENU___31EC6D26" Association="Self.FK__MENU_INGR__MENU___31EC6D26">
+      <End Role="MENU_OPTIONS" EntitySet="MENU_OPTIONS" />
+      <End Role="MENU_INGREDIENTS" EntitySet="MENU_INGREDIENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_LIN__MENU___48CFD27E" Association="Self.FK__ORDER_LIN__MENU___48CFD27E">
+      <End Role="MENU_OPTIONS" EntitySet="MENU_OPTIONS" />
+      <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER_LIN__ORDER__47DBAE45" Association="Self.FK__ORDER_LIN__ORDER__47DBAE45">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDER_LINES" EntitySet="ORDER_LINES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS__CUS_ID__4316F928" Association="Self.FK__ORDERS__CUS_ID__4316F928">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SANDWICHE__MENU___35BCFE0A" Association="Self.FK__SANDWICHE__MENU___35BCFE0A">
+      <End Role="MENU_OPTIONS" EntitySet="MENU_OPTIONS" />
+      <End Role="SANDWICHES" EntitySet="SANDWICHES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VENDOR_IT__INV_I__2B3F6F97" Association="Self.FK__VENDOR_IT__INV_I__2B3F6F97">
+      <End Role="INVENTORY_ITEMS" EntitySet="INVENTORY_ITEMS" />
+      <End Role="VENDOR_ITEMS" EntitySet="VENDOR_ITEMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VENDOR_IT__VEND___2C3393D0" Association="Self.FK__VENDOR_IT__VEND___2C3393D0">
+      <End Role="VENDORS" EntitySet="VENDORS" />
+      <End Role="VENDOR_ITEMS" EntitySet="VENDOR_ITEMS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

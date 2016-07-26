@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbAppModelStoreContainer" CdmEntityContainer="AppContext">
+    <EntitySetMapping Name="ACCOUNTS">
+      <EntityTypeMapping TypeName="DbAppModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNTS">
+          <ScalarProperty Name="ACC_ID" ColumnName="ACC_ID" />
+          <ScalarProperty Name="SAND_ID" ColumnName="SAND_ID" />
+          <ScalarProperty Name="ACC_REVENUE" ColumnName="ACC_REVENUE" />
+          <ScalarProperty Name="ACC_COST" ColumnName="ACC_COST" />
+          <ScalarProperty Name="ACC_PROFIT" ColumnName="ACC_PROFIT" />
+          <ScalarProperty Name="ACC_DATE" ColumnName="ACC_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERS">
+      <EntityTypeMapping TypeName="DbAppModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMERS">
+          <ScalarProperty Name="CUS_ID" ColumnName="CUS_ID" />
+          <ScalarProperty Name="CUS_FNAME" ColumnName="CUS_FNAME" />
+          <ScalarProperty Name="CUS_LNAME" ColumnName="CUS_LNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INVENTORY_ITEMS">
+      <EntityTypeMapping TypeName="DbAppModel.INVENTORY_ITEMS">
+        <MappingFragment StoreEntitySet="INVENTORY_ITEMS">
+          <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="INV_NAME" ColumnName="INV_NAME" />
+          <ScalarProperty Name="INV_QUANTITY" ColumnName="INV_QUANTITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITEM_CATEGORIES">
+      <EntityTypeMapping TypeName="DbAppModel.ITEM_CATEGORIES">
+        <MappingFragment StoreEntitySet="ITEM_CATEGORIES">
+          <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+          <ScalarProperty Name="CAT_NAME" ColumnName="CAT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOYAL_CUSTOMERS">
+      <EntityTypeMapping TypeName="DbAppModel.LOYAL_CUSTOMERS">
+        <MappingFragment StoreEntitySet="LOYAL_CUSTOMERS">
+          <ScalarProperty Name="CUS_ID" ColumnName="CUS_ID" />
+          <ScalarProperty Name="LCUS_PHONE" ColumnName="LCUS_PHONE" />
+          <ScalarProperty Name="LCUS_EMAIL" ColumnName="LCUS_EMAIL" />
+          <ScalarProperty Name="LCUS_ADDRESS" ColumnName="LCUS_ADDRESS" />
+          <ScalarProperty Name="LCUS_ZIPCODE" ColumnName="LCUS_ZIPCODE" />
+          <ScalarProperty Name="LCUS_POINTS" ColumnName="LCUS_POINTS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU_OPTIONS">
+      <EntityTypeMapping TypeName="DbAppModel.MENU_OPTIONS">
+        <MappingFragment StoreEntitySet="MENU_OPTIONS">
+          <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+          <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
+          <ScalarProperty Name="MENU_PRICE" ColumnName="MENU_PRICE" />
+          <ScalarProperty Name="MENU_COST" ColumnName="MENU_COST" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_LINES">
+      <EntityTypeMapping TypeName="DbAppModel.ORDER_LINES">
+        <MappingFragment StoreEntitySet="ORDER_LINES">
+          <ScalarProperty Name="LINE_NUM" ColumnName="LINE_NUM" />
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+          <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+          <ScalarProperty Name="LINE_QUANTITY" ColumnName="LINE_QUANTITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS">
+      <EntityTypeMapping TypeName="DbAppModel.ORDER">
+        <MappingFragment StoreEntitySet="ORDERS">
+          <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+          <ScalarProperty Name="CUS_ID" ColumnName="CUS_ID" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SANDWICHES">
+      <EntityTypeMapping TypeName="DbAppModel.SANDWICH">
+        <MappingFragment StoreEntitySet="SANDWICHES">
+          <ScalarProperty Name="SAND_ID" ColumnName="SAND_ID" />
+          <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+          <ScalarProperty Name="SAND_NAME" ColumnName="SAND_NAME" />
+          <ScalarProperty Name="SAND_MEAT_TYPE" ColumnName="SAND_MEAT_TYPE" />
+          <ScalarProperty Name="SAND_MEAT_QUANTITY" ColumnName="SAND_MEAT_QUANTITY" />
+          <ScalarProperty Name="SAND_CHEESE_TYPE" ColumnName="SAND_CHEESE_TYPE" />
+          <ScalarProperty Name="SAND_BREAD_TYPE" ColumnName="SAND_BREAD_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENDOR_ITEMS">
+      <EntityTypeMapping TypeName="DbAppModel.VENDOR_ITEMS">
+        <MappingFragment StoreEntitySet="VENDOR_ITEMS">
+          <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+          <ScalarProperty Name="VEND_ID" ColumnName="VEND_ID" />
+          <ScalarProperty Name="ITEM_DELIVERY_DATE" ColumnName="ITEM_DELIVERY_DATE" />
+          <ScalarProperty Name="ITEM_PRICE" ColumnName="ITEM_PRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENDORS">
+      <EntityTypeMapping TypeName="DbAppModel.VENDOR">
+        <MappingFragment StoreEntitySet="VENDORS">
+          <ScalarProperty Name="VEND_ID" ColumnName="VEND_ID" />
+          <ScalarProperty Name="VEND_NAME" ColumnName="VEND_NAME" />
+          <ScalarProperty Name="VEND_PHONE" ColumnName="VEND_PHONE" />
+          <ScalarProperty Name="VEND_EMAIL" ColumnName="VEND_EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MENU_INGREDIENTS" TypeName="DbAppModel.MENU_INGREDIENTS" StoreEntitySet="MENU_INGREDIENTS">
+      <EndProperty Name="INVENTORY_ITEMS">
+        <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+      </EndProperty>
+      <EndProperty Name="MENU_OPTIONS">
+        <ScalarProperty Name="MENU_ID" ColumnName="MENU_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
