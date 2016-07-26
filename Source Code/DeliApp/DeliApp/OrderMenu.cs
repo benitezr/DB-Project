@@ -135,6 +135,7 @@ namespace DeliApp
         {
             string itemName = values[0];
             int orderQuantity;
+            if (values[0].Equals("Sandwich", StringComparison.OrdinalIgnoreCase)) { Console.WriteLine("\nInput a valid sandwich name"); Console.ReadKey(); return; }
             if (!int.TryParse(values[1], out orderQuantity)) { Console.WriteLine("\nInvalid quantity inserted"); return; }
 
             using (var db = new AppContext())
