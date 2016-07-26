@@ -31,7 +31,7 @@ namespace DeliApp
                 if (display)
                 {
                     NewTitle(title);
-                    Console.WriteLine("[1] Retrieve Loyal Customer\n[2] Add Customer\n[3] Place Order\n[4] Back");
+                    Console.WriteLine("[1] Retrieve Loyal Customer\n[2] New Customer\n[3] Place Order\n[4] Back");
                 }
 
                 if (!int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out option)) { option = 0; }
