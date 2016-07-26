@@ -28,6 +28,7 @@ namespace DeliApp
                 {
                     NewTitle(title);
                     Console.WriteLine("[1] View Inventory On Hand\n[2] Update Inventory\n[3] Add New Inventory Item\n[4] Back");
+                }
 
                     if (!int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out option)) { option = 0; }
 
@@ -53,7 +54,6 @@ namespace DeliApp
                             display = false;
                             break;
                     }
-                }
             } while (!quit);
             menuMng.RemoveMenu();
         }
