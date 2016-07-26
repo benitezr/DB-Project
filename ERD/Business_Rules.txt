@@ -1,0 +1,21 @@
+Business Rules:
+
+- Each Vendor may provide multiple items to Inventory
+- Inventory may receive multiple items from different Vendors
+
+- Every Inventory Item has an Item Category
+- An Item Category may be assigned to many Inventory Items
+
+- Each Menu Item may contain many ingredients from Inventory
+- Each Inventory Item may belong to many Menu Items
+
+- Each Sandwich belongs to a Menu Item
+- A Menu Item contains at least one sandwich type
+
+- Each account transaction is for one Sandwich purchase
+- A Sandwich may be purchased and accounted for multiple times
+
+- Each Order contains at least one Order Line
+- Each Order Line belongs to one Order
+
+- A Customer may become a Loyal Customer
