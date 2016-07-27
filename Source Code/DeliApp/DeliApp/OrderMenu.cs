@@ -219,12 +219,25 @@ namespace DeliApp
         {
             string sandwichName = values[0], meat = values[1], cheese = values[3], bread = values[4], orderQuantity = values[5];
             int meatQuantity;
-            if (!int.TryParse(values[2], out meatQuantity)) { Console.WriteLine("\nInsert valid quantity amount"); return; }
+            List<string> ingredients = new List<string> { meat, cheese, bread };
+            if (!int.TryParse(values[2], out meatQuantity)) { Console.WriteLine("\nInsert valid quantity amount"); Console.ReadKey(); return; }
+            if (meatQuantity > 3) { Console.WriteLine("\nMeat quantity cannot exceed 3"); Console.ReadKey(); return; }
 
             using (var db = new AppContext())
             {
-                var menu = db.MENU_OPTIONS.SingleOrDefault(x => x.MENU_NAME.Equals("Sandwich"));
+                foreach (string i in ingredients)
+                {
+                    if (db.INVENTORY_ITEMS.FirstOrDefault(x => x.INV_NAME.Equals(i, StringComparison.OrdinalIgnoreCase)) == null)
+                    {
+                        Console.WriteLine("\nInsert valid ingredient");
+                        Console.ReadKey();
+                        return;
+                    }
 
+                }
+
+                var menu = db.MENU_OPTIONS.SingleOrDefault(x => x.MENU_NAME.Equals("Sandwich"));
+                                
                 if (menu != null)
                 {
                     var sandwich = new SANDWICH
