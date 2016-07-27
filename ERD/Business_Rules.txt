@@ -19,3 +19,8 @@ Business Rules:
 - Each Order Line belongs to one Order
 
 - A Customer may become a Loyal Customer
+
+Assumptions Made:
+
+- A physical copy of the Menu will be in plain sight for both employees and customers to view
+- Only store employees will have access to the application
